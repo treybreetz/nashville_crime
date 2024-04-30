@@ -89,8 +89,8 @@
 
             // Add markers to the map
             data.forEach((call) => {
-                const latitude = parseFloat(call.lat);
-                const longitude = parseFloat(call.lon);
+                const latitude = parseFloat(call.latitude);
+                const longitude = parseFloat(call.longitude);
 
                 // Check if latitude and longitude are valid numbers
                 if (!isNaN(latitude) && !isNaN(longitude)) {
@@ -98,13 +98,13 @@
                     markers.push(marker);
 
                     // Format the call_received date
-                    const formattedCallReceivedDate = formatCallReceivedDate(call.call_rec);
+                    const formattedCallReceivedDate = formatCallReceivedDate(call.call_received);
 
                     // Add popup with information to each marker
                     marker.bindPopup(`
                         <b>Call Received:</b> ${formattedCallReceivedDate}<br>
-                        <b>Street Name:</b> ${call.street_name}<br>
-                        <b>Tencode Description:</b> ${call.description}
+                        <b>Street Name:</b> ${call.streetname}<br>
+                        <b>Tencode Description:</b> ${call.tencodedesc}
                     `);
                 }
             });
